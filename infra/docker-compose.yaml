@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  postgres: 
+    image: postgres:14
+    container_name: postgres
+    ports:
+      - "127.0.0.1:${DB_PORT}:5432"
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}  
+    networks:
+    - ttoe_network   
+
+  auth_service:
+    image: auth_service_1.0
+    container_name: auth_service
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:${PORT}:${PORT}"
+    environment:
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_HOST: ${DATABASE_HOST}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+    networks:
+      - ttoe_network  
+
+networks:
+  ttoe_network:
+    driver: bridge      

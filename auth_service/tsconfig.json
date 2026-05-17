@@ -1,0 +1,37 @@
+// {
+//   "extends": "@tsconfig/node22/tsconfig.json",
+//   "compilerOptions": {
+//     "outDir": "dist",
+//     "noEmitOnError": true,
+//     "noImplicitAny": true,
+//     "module": "node16",
+//     "noUncheckedIndexedAccess": true,
+//     "esModuleInterop": true,
+//     // "strict": true
+//   },
+//   "include": ["src/**/*"],
+//   "exclude": ["node_modules"]
+// }
+
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["es2019"],
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    // "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    // "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "test"]
+}
